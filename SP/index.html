@@ -25,6 +25,22 @@
   </style>
 </head>
 <body>
-  <video src="./video.mp4" autoplay loop playsinline controls></video>
+  <video id="vid" src="./video.mp4" autoplay loop muted playsinline controls></video>
+  <script>
+    const vid = document.getElementById('vid');
+
+    // 페이지 로드 시 자동재생 보장 시도
+    vid.play().catch(() => {});
+
+    // 영상 본체를 클릭할 때 음소거/음소거 해제 토글 (컨트롤 바 클릭은 제외)
+    vid.addEventListener('click', (e) => {
+      if (e.target === vid) {
+        vid.muted = !vid.muted;
+        if (!vid.muted && vid.paused) {
+          vid.play().catch(() => {});
+        }
+      }
+    });
+  </script>
 </body>
 </html>
