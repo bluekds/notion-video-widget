@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: transparent; }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 비율 유지하며 꽉 채움 (잘림 방지하려면 contain으로 변경) */
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <video src="./video.mp4" autoplay loop muted playsinline></video>
+</body>
+</html>
